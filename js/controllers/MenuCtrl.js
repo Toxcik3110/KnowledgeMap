@@ -5,10 +5,14 @@ app.controller('MenuCtrl', ['$scope', '$state', function($scope, $state) {
     $scope.viewX = 0;
     $scope.viewY = 0;
     $scope.moveView = false;
+    $scope.scale = 1;
     $scope.maxHeight = document.documentElement.clientHeight;
     $scope.maxWidth = document.documentElement.clientWidth;
     $scope.components = components.map((s) => s);
     console.log($scope.components);
+    $scope.addScale = (s) => {
+        $scope.scale *= s;
+    }
     $scope.click = (e) => {
         console.log("click");
     }
@@ -48,5 +52,9 @@ app.controller('MenuCtrl', ['$scope', '$state', function($scope, $state) {
         if(y - $scope.viewY > 99)
             return false;
         return true;
+    }
+
+    var myFunction = () => {
+        console.log("scroll");
     }
 }]);

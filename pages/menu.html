@@ -3,14 +3,19 @@
     style="overflow:hidden;position:absolute;left:0vw;top:0vh;width:100vw;height:100vh;"
     ng-click="click($event)" ng-mousemove="mouseMove($event)"
     ng-mousedown="mouseDown($event)" ng-mouseup="mouseUp($event)">
-
+    <button type="button" class="pull-right btn btn-info" name="button" ng-click="addScale(2)">
+        <i class="glyphicon glyphicon-plus"></i>
+    </button>
+    <button type="button" class="pull-right btn btn-info" name="button" ng-click="addScale(0.5)">
+        <i class="glyphicon glyphicon-minus"></i>
+    </button>
     <!-- <h1 class="text-center">X:{{x}}; Y:{{y}};</h1>
     <h1 class="text-center">X:{{viewX}}; Y:{{viewY}};</h1>
     <h1 class="text-center">X:{{pinX}}; Y:{{pinY}};</h1> -->
     <!-- <h1 class="text-center">Size of screen:{{maxWidth}}, {{maxHeight}};</h1> -->
-    <div ng-if="checkCoords(c.x,c.y)" ng-repeat="c in components" ng-scr
-        style="position:absolute;left:{{c.x - viewX}}vw;top:{{c.y - viewY}}vh;
-                width:{{c.size}}vw;height:{{c.size}}vh;background-color:#f5d00c;">
+    <div ng-repeat="c in components" onscroll="myFunction()"
+        style="position:absolute;left:{{(c.x - viewX)*scale}}vw;top:{{(c.y - viewY)*scale}}vh;
+                width:{{c.size*scale}}vw;height:{{c.size*scale}}vh;background-color:#f5d00c;">
         <h1 class="text-center">{{c.title}}</h1>
     </div>
 
