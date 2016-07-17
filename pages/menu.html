@@ -13,10 +13,10 @@
     <h1 class="text-center">X:{{viewX}}; Y:{{viewY}};</h1>
     <h1 class="text-center">X:{{pinX}}; Y:{{pinY}};</h1> -->
     <!-- <h1 class="text-center">Size of screen:{{maxWidth}}, {{maxHeight}};</h1> -->
-    <div ng-repeat="c in components" onscroll="myFunction()"
+    <div class="unselect" ng-repeat="c in components" onscroll="myFunction()"
         style="position:absolute;left:{{(c.x - viewX)*scale}}vw;top:{{(c.y - viewY)*scale}}vh;
                 width:{{c.size*scale}}vw;height:{{c.size*scale}}vh;background-color:#f5d00c;">
-        <h1 class="text-center">{{c.title}}</h1>
+        <h1 ng-if="(c.size*scale) > 4" style="font-size:{{(c.size*scale*2)}}px;"  style="font-size:{{c.size*scale/6}}vh;" class="text-center">{{c.title}}</h1>
     </div>
 
 </div>
